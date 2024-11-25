@@ -90,4 +90,3 @@ def create_pandas_transformer(config: DuneETLConfig) -> PandasTransformer:
         transform_vertical_name=config.transform_vertical_name,
         transform_protocol_name=config.transform_protocol_name
     )
-

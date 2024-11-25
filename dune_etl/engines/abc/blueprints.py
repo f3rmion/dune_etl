@@ -28,3 +28,13 @@ class Transformer(ABC):
     @abstractmethod
     def summarize(self):
         pass
+
+
+class Analyser(ABC):
+    """Abstract base class to define analyse behaviour.
+    
+    ABC simplifies the creation of new analysers (eg., Dask or Apache Spark)
+    """
+    @abstractmethod
+    def create_analysis(self):
+        pass

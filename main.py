@@ -1,8 +1,10 @@
+from dune_etl.engines.abc.blueprints import Analyser
 from dune_etl.engines.abc.blueprints import Extractor
 from dune_etl.engines.abc.blueprints import Transformer
 from dune_etl.config import create_dune_etl_config
 from dune_etl.engines.pandas.extractor import create_pandas_extractor
 from dune_etl.engines.pandas.transformer import create_pandas_transformer
+from dune_etl.engines.pandas.analyser import create_pandas_analyser
 
 # get Dune ETL config
 CONFIG = create_dune_etl_config()
@@ -33,19 +35,35 @@ def transform(transformer: Transformer):
     # summarize records by vertical and protocol by week
     transformer.summarize()
 
+def analyse(analyser: Analyser):
+    """Analyser function to create top k analysis.
+    
+    Args:
+    analyser: Analyser ABC blueprint (Analyser)
+    """
+    analyser.create_analysis()
+
 
 def main():
     # create Pandas extractor
-    # pandas_extractor = create_pandas_extractor(CONFIG)
+    pandas_extractor = create_pandas_extractor(CONFIG)
     
     # store records in staging area
-    # extract(pandas_extractor)
+    extract(pandas_extractor)
 
     # create Pandas transformer
     pandas_transformer = create_pandas_transformer(CONFIG)
 
     # summarize by vertical and protocol by week
     transform(pandas_transformer)
+
+    # create Pandas analyser
+    pandas_analyser = create_pandas_analyser(CONFIG)
+    print(pandas_analyser)
+
+    # create top k analysis for verticals and protocols
+    analyse(pandas_analyser)
+
 
 if __name__ == "__main__":
     main()

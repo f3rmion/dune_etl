@@ -15,3 +15,4 @@ wheels/
 # ETL directories
 extracted/
 transformed/
+analysis/
