@@ -26,7 +26,7 @@ class Transformer(ABC):
         pass
 
     @abstractmethod
-    def summarize(self):
+    def create_summary(self):
         pass
 
 

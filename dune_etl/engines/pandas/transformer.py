@@ -21,7 +21,7 @@ class PandasTransformer(Transformer):
         """Read extracted records in parquet formar via Pandas/Pyarrow."""
         self.results_df = pd.read_parquet(self.extract_name, engine=engine)
 
-    def summarize(self, engine="pyarrow", compression="gzip"):
+    def create_summary(self, engine="pyarrow", compression="gzip"):
         """Summarize Dune data.
         
         We want weekly summary at the vertical and protocol level.

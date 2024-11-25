@@ -33,7 +33,7 @@ def transform(transformer: Transformer):
     transformer.read_records()
 
     # summarize records by vertical and protocol by week
-    transformer.summarize()
+    transformer.create_summary()
 
 def analyse(analyser: Analyser):
     """Analyser function to create top k analysis.
@@ -59,7 +59,6 @@ def main():
 
     # create Pandas analyser
     pandas_analyser = create_pandas_analyser(CONFIG)
-    print(pandas_analyser)
 
     # create top k analysis for verticals and protocols
     analyse(pandas_analyser)
