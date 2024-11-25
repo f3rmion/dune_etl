@@ -25,8 +25,8 @@ Add the following to a `.env` file in the project root:
 DUNE_API_KEY=<your API key>
 DUNE_API_REQUEST_TIMEOUT=120
 
-QUERY_ID=<Dune query ID>
-QUERY_NAME=<Dune query name>
+QUERY_ID=4326389
+QUERY_NAME="transfer_classification"
 
 EXTRACT_NAME="extract.parquet.gzip"
 TRANSFORM_VERTICAL_NAME="summary_vertical.parquet.gzip"
