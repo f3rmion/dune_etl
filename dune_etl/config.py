@@ -16,10 +16,15 @@ class DuneETLConfig:
             transformation_path,
             query_id,
             query_name,
+            transform_vertical_name,
+            transform_protocol_name,
     ):
         self.dotenv_path = dotenv_path
         self.extraction_path = extraction_path
         self.transformation_path = transformation_path
+
+        self.transform_vertical_name = transform_vertical_name
+        self.transform_protocol_name = transform_protocol_name
 
         self.query_id = query_id
         self.query_name = query_name
@@ -47,6 +52,8 @@ def create_dune_etl_config():
     Path(transformation_path).mkdir(exist_ok=True)
 
     extraction_path = os.path.join(extraction_path, os.environ["EXTARCT_NAME"])
+    transform_vertical_name = os.path.join(transformation_path, os.environ["TRANSFORM_VERTICAL_NAME"])
+    transform_protocol_name = os.path.join(transformation_path, os.environ["TRANFORM_PROTOCOL_NAME"])
 
     # get query details
     query_id = os.environ["QUERY_ID"]
@@ -57,7 +64,9 @@ def create_dune_etl_config():
         extraction_path=extraction_path,
         transformation_path=transformation_path,
         query_id=query_id,
-        query_name=query_name
+        query_name=query_name,
+        transform_vertical_name=transform_vertical_name,
+        transform_protocol_name=transform_protocol_name
     )
 
 
