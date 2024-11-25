@@ -92,6 +92,7 @@ This executes the following steps:
 1. **Efficiency**: Replace in-memory Pandas with distributed engines (e.g., Dask).
 2. **Scalability**: Partition data and adopt cloud solutions.
 3. **Extensibility**: Keep using dependency injection for modular ETL components with updated parts.
+4. **Testing**: Improve (unit) test coverage for all ETL steps (dependency injection can be used for mocking).
 
 These improvements will ensure the pipeline remains scalable, efficient, and future-proof.
 
