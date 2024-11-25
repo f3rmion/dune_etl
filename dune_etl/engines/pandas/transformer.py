@@ -5,6 +5,7 @@ import pandas as pd
 from dune_etl.config import DuneETLConfig
 from dune_etl.engines.abc.blueprints import Transformer
 
+
 class PandasTransformer(Transformer):
     """Pandas transformer."""
 
@@ -23,7 +24,7 @@ class PandasTransformer(Transformer):
 
     def create_summary(self, engine="pyarrow", compression="gzip"):
         """Summarize Dune data.
-        
+
         We want weekly summary at the vertical and protocol level.
         The following metrics are needed:
         - unique safes
@@ -32,7 +33,7 @@ class PandasTransformer(Transformer):
         """
         # convert block_date to datetime
         self.results_df["block_date"] = pd.to_datetime(self.results_df["block_date"])
-        
+
         # extract the week (ISO week)
         self.results_df["week"] = (
             self.results_df["block_date"].dt.to_period("W").astype(str)
@@ -77,10 +78,10 @@ class PandasTransformer(Transformer):
 
 def create_pandas_transformer(config: DuneETLConfig) -> PandasTransformer:
     """Create Pandas trasnformer.
-    
+
     Args:
     config: Dune ETL config (DuneETLConfig)
-    
+
     Returns:
     Pandas transformer.
     """
@@ -88,5 +89,5 @@ def create_pandas_transformer(config: DuneETLConfig) -> PandasTransformer:
     return PandasTransformer(
         extract_name=config.extraction_path,
         transform_vertical_name=config.transform_vertical_name,
-        transform_protocol_name=config.transform_protocol_name
+        transform_protocol_name=config.transform_protocol_name,
     )

@@ -10,18 +10,18 @@ class DuneETLConfig:
     """Dune ETL configuration."""
 
     def __init__(
-            self,
-            dotenv_path,
-            extraction_path,
-            transformation_path,
-            query_id,
-            query_name,
-            transform_vertical_name,
-            transform_protocol_name,
-            top5_vertical_tvp,
-            top5_vertical_transaction,
-            top5_protocol_tvp,
-            top5_protocol_transaction,
+        self,
+        dotenv_path,
+        extraction_path,
+        transformation_path,
+        query_id,
+        query_name,
+        transform_vertical_name,
+        transform_protocol_name,
+        top5_vertical_tvp,
+        top5_vertical_transaction,
+        top5_protocol_tvp,
+        top5_protocol_transaction,
     ):
         self.dotenv_path = dotenv_path
         self.extraction_path = extraction_path
@@ -41,7 +41,7 @@ class DuneETLConfig:
 
 def create_dune_etl_config():
     """Create Dune ETL configuration.
-    
+
     Returns:
     Dune ETL configuration.
     """
@@ -62,15 +62,22 @@ def create_dune_etl_config():
     Path(transformation_path).mkdir(exist_ok=True)
     Path(anaylisis_path).mkdir(exist_ok=True)
 
-
     extraction_path = os.path.join(extraction_path, os.environ["EXTARCT_NAME"])
-    transform_vertical_name = os.path.join(transformation_path, os.environ["TRANSFORM_VERTICAL_NAME"])
-    transform_protocol_name = os.path.join(transformation_path, os.environ["TRANFORM_PROTOCOL_NAME"])
+    transform_vertical_name = os.path.join(
+        transformation_path, os.environ["TRANSFORM_VERTICAL_NAME"]
+    )
+    transform_protocol_name = os.path.join(
+        transformation_path, os.environ["TRANFORM_PROTOCOL_NAME"]
+    )
 
     top5_vertical_tvp = os.path.join(anaylisis_path, os.environ["TOP5_VERTICAL_TVP"])
-    top5_vertical_transaction = os.path.join(anaylisis_path, os.environ["TOP5_VERTICAL_TRANSACTIONS"])
+    top5_vertical_transaction = os.path.join(
+        anaylisis_path, os.environ["TOP5_VERTICAL_TRANSACTIONS"]
+    )
     top5_protocol_tvp = os.path.join(anaylisis_path, os.environ["TOP5_PROTOCOL_TVP"])
-    top5_protocol_transaction = os.path.join(anaylisis_path, os.environ["TOP5_PROTOCOL_TRANSACTIONS"])
+    top5_protocol_transaction = os.path.join(
+        anaylisis_path, os.environ["TOP5_PROTOCOL_TRANSACTIONS"]
+    )
 
     # get query details
     query_id = os.environ["QUERY_ID"]
@@ -89,6 +96,3 @@ def create_dune_etl_config():
         top5_protocol_tvp=top5_protocol_tvp,
         top5_protocol_transaction=top5_protocol_transaction,
     )
-
-
-

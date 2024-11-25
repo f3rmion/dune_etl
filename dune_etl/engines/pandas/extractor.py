@@ -28,20 +28,24 @@ class PandasExtractor(Extractor):
         """Store Dune records via Pandas engine."""
         # explicitly type cast numeric columns
         numeric_columns = ["amount", "amount_usd"]
-        self.records_df[numeric_columns] = self.records_df[numeric_columns].apply(pd.to_numeric)
+        self.records_df[numeric_columns] = self.records_df[numeric_columns].apply(
+            pd.to_numeric
+        )
 
         # store records in compressed parquet file
         self.records_df.to_parquet(
-            path=self.extraction_path, engine=engine, compression=compression,
+            path=self.extraction_path,
+            engine=engine,
+            compression=compression,
         )
 
 
 def create_pandas_extractor(config: DuneETLConfig) -> PandasExtractor:
     """Create Pandas extractor.
-    
+
     Args:
     config: Dune ETL config (DuneETLConfig)
-    
+
     Returns:
     Pandas extractor.
     """

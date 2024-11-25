@@ -23,11 +23,27 @@ We use [`uv`](https://docs.astral.sh/uv/getting-started/) as our Python package 
 
 The following environment variables are stored within an `.env` file in the root directory of this project:
 
-- `DUNE_API_KEY`: Your Dune API key
-- `DUNE_API_REQUEST_TIMEOUT`: Timeout parameter (`default = 120`)
-- `QUERY_ID`: Dune query id
-- `QUERY_NAME`: Dune query name
-- `EXTRACT_NAME`: Name of the extraction file (`default = extract.parquet.gzip`)
-- `TRANSFORM_VERTICAL_NAME`: Name of the vertical summary file (`default = summary_vertical.parquet.gzip`)
-- `TRANSFORM_PROTOCOL_NAME`: Name of the protocol summary file (`default = summary_protocol.parquet.gzip`)
+```bash
+DUNE_API_KEY=<your API key>
+DUNE_API_REQUEST_TIMEOUT=120
 
+QUERY_ID=<Dune query ID>
+QUERY_NAME=<Dune query name>
+
+EXTARCT_NAME="extract.parquet.gzip"
+TRANSFORM_VERTICAL_NAME="summary_vertical.parquet.gzip"
+TRANFORM_PROTOCOL_NAME="summary_protocol.parquet.gzip"
+
+TOP5_VERTICAL_TVP="top5_vertical_total_tvp.csv"
+TOP5_VERTICAL_TRANSACTIONS="top5_vertical_transactions.csv"
+TOP5_PROTOCOL_TVP="top5_protocol_total_tvp.csv"
+TOP5_PROTOCOL_TRANSACTIONS="top5_protocol_transactions.csv"
+```
+
+## Run Dune ETL
+
+To run the full ETL we use the following command
+
+```bash
+> uv run main.py
+```
