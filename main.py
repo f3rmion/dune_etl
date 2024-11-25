@@ -1,6 +1,6 @@
 """Dune ETL main function."""
 
-from dune_etl.client import analyse
+from dune_etl.etl import analyse
 from dune_etl.etl import extract
 from dune_etl.etl import transform
 from dune_etl.config import create_dune_etl_config
