@@ -29,7 +29,7 @@ class PandasAnalyser(Analyser):
         self.vertical_df = pd.DataFrame()
         self.protocol_df = pd.DataFrame()
 
-    def create_analysis(self, engine="pyarrow", compression="gzip"):
+    def create_analysis(self, engine="pyarrow"):
         """Find top 5 TVP verticals and protocols.
 
         We define top TVP by:
