@@ -1,7 +1,12 @@
 [project]
 name = "dune-etl"
 version = "0.1.0"
-description = "Add your description here"
+description = "Dune ETL for Safe outgoing TVP data."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "black>=24.10.0",
+    "dune-client>=1.7.7",
+    "pytest>=8.3.3",
+    "python-dotenv>=1.0.1",
+]

@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# remove local .env file from history
+.env
